@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h1>MARKETS</h1>
+        <table style = "width:50%">
+            <tr>
+                {% for col in cols %}
+                    <th>{{col}}</th>
+                {% endfor %}
+            </tr>
+            {% for population, job_diversity, rental_vacancy, median_rent in markets %}
+                <tr>
+                    <td>{{population.msa_id}}</td>
+                    <td>{{population.msa_name}}</td>
+                    <td>{{population.total_ppl}}</td>
+                    <td>{{population.msa.unemployed_pe}}</td>
+                    <td>{{median_rent.median_rent}}</td>
+                    <td>{{rental_vacancy.rental_vacancy_pe}}</td>
+                    <td>{{population.ppl_lessthan5_pe}}</td>
+                    <td>{{population.ppl_5to9_pe}}</td>
+                    <td>{{population.ppl_10to14_pe}}</td>
+                    <td>{{population.ppl_15to19_pe}}</td>
+                    <td>{{population.ppl_20to24_pe}}</td>
+                    <td>{{population.ppl_25to34_pe}}</td>
+                    <td>{{population.ppl_35to44_pe}}</td>
+                    <td>{{population.ppl_45to54_pe}}</td>
+                    <td>{{population.ppl_55to59_pe}}</td>
+                    <td>{{population.ppl_60to64_pe}}</td>
+                    <td>{{population.ppl_65to74_pe}}</td>
+                    <td>{{population.ppl_75to84_pe}}</td>
+                    <td>{{population.ppl_morethan85_pe}}</td>
+                    <td>{{job_diversity.agriculture_pe}}</td>
+                    <td>{{job_diversity.construction_pe}}</td>
+                    <td>{{job_diversity.manufacturing_pe}}</td>
+                    <td>{{job_diversity.wholesale_pe}}</td>
+                    <td>{{job_diversity.retail_pe}}</td>
+                    <td>{{job_diversity.transportation_pe}}</td>
+                    <td>{{job_diversity.it_pe}}</td>
+                    <td>{{job_diversity.business_pe}}</td>
+                    <td>{{job_diversity.scientific_pe}}</td>
+                    <td>{{job_diversity.educational_pe}}</td>
+                    <td>{{job_diversity.entertainment_pe}}</td>
+                    <td>{{job_diversity.other_pe}}</td>
+                    <td>{{job_diversity.public_admin_pe}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
