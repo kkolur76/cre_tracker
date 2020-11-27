@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class AuthGroup(models.Model):
@@ -136,7 +137,6 @@ class JobDiversity(models.Model):
     public_admin_pe = models.FloatField(db_column='public_admin_PE', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
         db_table = 'job_diversity'
 
 
@@ -146,7 +146,6 @@ class MedianRent(models.Model):
     median_rent = models.FloatField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'median_rent'
 
 
@@ -169,7 +168,6 @@ class Population(models.Model):
     ppl_morethan85_pe = models.FloatField(db_column='ppl_morethan85_PE', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
         db_table = 'population'
 
 
@@ -179,7 +177,6 @@ class RentalVacancy(models.Model):
     rental_vacancy_pe = models.FloatField(db_column='rental_vacancy_PE', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
         db_table = 'rental_vacancy'
 
 
@@ -189,5 +186,4 @@ class Unemployment(models.Model):
     unemployed_pe = models.FloatField(db_column='unemployed_PE', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
         db_table = 'unemployment'
