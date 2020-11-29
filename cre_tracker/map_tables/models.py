@@ -120,7 +120,7 @@ class DjangoSession(models.Model):
 
 
 class JobDiversity(models.Model):
-    msa = models.ForeignKey('Unemployment', models.DO_NOTHING, primary_key=True)
+    msa = models.OneToOneField('Unemployment', on_delete=models.RESTRICT, primary_key=True)
     msa_name = models.CharField(max_length=255, blank=True, null=True)
     agriculture_pe = models.FloatField(db_column='agriculture_PE', blank=True, null=True)  # Field name made lowercase.
     construction_pe = models.FloatField(db_column='construction_PE', blank=True, null=True)  # Field name made lowercase.
@@ -141,7 +141,7 @@ class JobDiversity(models.Model):
 
 
 class MedianRent(models.Model):
-    msa = models.ForeignKey('Unemployment', models.DO_NOTHING, primary_key=True)
+    msa = models.OneToOneField('Unemployment', on_delete=models.RESTRICT, primary_key=True)
     msa_name = models.CharField(max_length=255, blank=True, null=True)
     median_rent = models.FloatField(blank=True, null=True)
 
@@ -150,7 +150,7 @@ class MedianRent(models.Model):
 
 
 class Population(models.Model):
-    msa = models.ForeignKey('Unemployment', models.DO_NOTHING, primary_key=True)
+    msa = models.OneToOneField('Unemployment', on_delete=models.RESTRICT, primary_key=True)
     msa_name = models.CharField(max_length=255, blank=True, null=True)
     total_ppl = models.IntegerField(blank=True, null=True)
     ppl_lessthan5_pe = models.FloatField(db_column='ppl_lessthan5_PE', blank=True, null=True)  # Field name made lowercase.
@@ -172,7 +172,7 @@ class Population(models.Model):
 
 
 class RentalVacancy(models.Model):
-    msa = models.ForeignKey('Unemployment', models.DO_NOTHING, primary_key=True)
+    msa = models.OneToOneField('Unemployment', on_delete=models.RESTRICT, primary_key=True)
     msa_name = models.CharField(max_length=255, blank=True, null=True)
     rental_vacancy_pe = models.FloatField(db_column='rental_vacancy_PE', blank=True, null=True)  # Field name made lowercase.
 

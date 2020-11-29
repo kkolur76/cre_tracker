@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load render_table from django_tables2 %}
 
 {% block content %}
     <div>
@@ -36,9 +37,9 @@
                         <!--<td>{{population.msa_id.unemployed_pe}}</td>-->
                         <td>{{median_rent.median_rent}}</td>
                         <td>{{rental_vacancy.rental_vacancy_pe}}</td>
-                        <td>{{population.ppl_lessthan5_pe}}</td>
-                        <td>{{population.ppl_5to9_pe}}</td>
-                        <td>{{population.ppl_10to14_pe}}</td>
+                        <!--<td>{{population.ppl_lessthan5_pe}}</td>-->
+                        <!--<td>{{population.ppl_5to9_pe}}</td>-->
+                        <!--<td>{{population.ppl_10to14_pe}}</td>-->
                         <td>{{population.ppl_15to19_pe}}</td>
                         <td>{{population.ppl_20to24_pe}}</td>
                         <td>{{population.ppl_25to34_pe}}</td>

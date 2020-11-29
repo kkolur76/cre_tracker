@@ -41,10 +41,12 @@ INSTALLED_APPS = [
 
     # own
     'map_tables',
-    'django_filters',
-    'template_debug',
+    'blog',
     'users',
     'crispy_forms',
+    'django_tables2',
+    'django_filters',
+    'template_debug',
 ]
 
 MIDDLEWARE = [

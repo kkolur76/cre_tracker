@@ -11,5 +11,10 @@
 cre_tracker/venv\
 cre_tracker/.DS_Store\
 cre_tracker/__pycache__/\
-map_tables/__pycache__/\
-../.DS_Store}
+cre_tracker/map_tables/__pycache__/\
+cre_tracker/blog/__pycache__/\
+cre_tracker/users/__pycache__/\
+cre_tracker/media/profile_pics/\
+Media\
+../.DS_Store\
+}
