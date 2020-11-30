@@ -5,7 +5,9 @@ from .filters import MarketsFilter
 from django.contrib.auth.decorators import login_required
 from django import template
 from django_tables2.templatetags.django_tables2 import querystring
-
+from django.views.generic import ListView
+from django_tables2 import SingleTableView
+from .tables import MarketTable
 
 # {% block table.thead %}
 #     {% render_header %}
@@ -24,8 +26,7 @@ def markets_view(request):
     markets_vacancy_rate = RentalVacancy.objects.all()
     markets_median_rent = MedianRent.objects.all()
 
-    markets_info = zip(Population.objects.all(), Unemployment.objects.all(), JobDiversity.objects.all(),
-                       RentalVacancy.objects.all(), MedianRent.objects.all())
+    markets_info = Unemployment.objects.all().select_related('population', 'medianrent', 'rentalvacancy', 'jobdiversity')
     cols = ['MSA_ID', 'MSA_Name', 'Total Pop.', 'Unemployed %', 'Median Rent $', 'Vacancy %',
             # < 5, 5-9, 10-14,
             '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84',
@@ -36,6 +37,11 @@ def markets_view(request):
     context = {'markets': markets_info, 'cols': cols, 'my_filter': my_filter}
 
     return render(request, "map_tables.html", context)
+
+
+class MarketListView(ListView):
+    model = Unemployment
+    template_name = 'map_tables.html'
 
 
 register = template.Library()

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load render_table from django_tables2 %}
+<!--{% load render_table from django_tables2 %}-->
 
 {% block content %}
     <div>
         <h1>MARKETS</h1>
-        <table class="sortable">
+        <table>
             <thead>
                 <tr>
                     {% for col in cols %}
@@ -28,41 +28,40 @@
                         </th>
                     {% endfor %}
                 </tr>
-                {% for population, unemployment, job_diversity, rental_vacancy, median_rent in markets %}
+                {% for city in markets %}
                     <tr>
-                        <td>{{population.msa_id}}</td>
-                        <td>{{population.msa_name}}</td>
-                        <td>{{population.total_ppl}}</td>
-                        <td>{{unemployment.unemployed_pe}}</td>
-                        <!--<td>{{population.msa_id.unemployed_pe}}</td>-->
-                        <td>{{median_rent.median_rent}}</td>
-                        <td>{{rental_vacancy.rental_vacancy_pe}}</td>
-                        <!--<td>{{population.ppl_lessthan5_pe}}</td>-->
-                        <!--<td>{{population.ppl_5to9_pe}}</td>-->
-                        <!--<td>{{population.ppl_10to14_pe}}</td>-->
-                        <td>{{population.ppl_15to19_pe}}</td>
-                        <td>{{population.ppl_20to24_pe}}</td>
-                        <td>{{population.ppl_25to34_pe}}</td>
-                        <td>{{population.ppl_35to44_pe}}</td>
-                        <td>{{population.ppl_45to54_pe}}</td>
-                        <td>{{population.ppl_55to59_pe}}</td>
-                        <td>{{population.ppl_60to64_pe}}</td>
-                        <td>{{population.ppl_65to74_pe}}</td>
-                        <td>{{population.ppl_75to84_pe}}</td>
-                        <td>{{population.ppl_morethan85_pe}}</td>
-                        <td>{{job_diversity.agriculture_pe}}</td>
-                        <td>{{job_diversity.construction_pe}}</td>
-                        <td>{{job_diversity.manufacturing_pe}}</td>
-                        <td>{{job_diversity.wholesale_pe}}</td>
-                        <td>{{job_diversity.retail_pe}}</td>
-                        <td>{{job_diversity.transportation_pe}}</td>
-                        <td>{{job_diversity.it_pe}}</td>
-                        <td>{{job_diversity.business_pe}}</td>
-                        <td>{{job_diversity.scientific_pe}}</td>
-                        <td>{{job_diversity.educational_pe}}</td>
-                        <td>{{job_diversity.entertainment_pe}}</td>
-                        <td>{{job_diversity.other_pe}}</td>
-                        <td>{{job_diversity.public_admin_pe}}</td>
+                        <td>{{city.msa}}</td>
+                        <td>{{city.msa_name}}</td>
+                        <td>{{city.population.total_ppl}}</td>
+                        <td>{{city.unemployed_pe}}</td>
+                        <td>{{city.medianrent.median_rent}}</td>
+                        <td>{{city.rentalvacancy.rental_vacancy_pe}}</td>
+                        <!--<td>{{city.population.ppl_lessthan5_pe}}</td>-->
+                        <!--<td>{{city.population.ppl_5to9_pe}}</td>-->
+                        <!--<td>{{city.population.ppl_10to14_pe}}</td>-->
+                        <td>{{city.population.ppl_15to19_pe}}</td>
+                        <td>{{city.population.ppl_20to24_pe}}</td>
+                        <td>{{city.population.ppl_25to34_pe}}</td>
+                        <td>{{city.population.ppl_35to44_pe}}</td>
+                        <td>{{city.population.ppl_45to54_pe}}</td>
+                        <td>{{city.population.ppl_55to59_pe}}</td>
+                        <td>{{city.population.ppl_60to64_pe}}</td>
+                        <td>{{city.population.ppl_65to74_pe}}</td>
+                        <td>{{city.population.ppl_75to84_pe}}</td>
+                        <td>{{city.population.ppl_morethan85_pe}}</td>
+                        <td>{{city.jobdiversity.agriculture_pe}}</td>
+                        <td>{{city.jobdiversity.construction_pe}}</td>
+                        <td>{{city.jobdiversity.manufacturing_pe}}</td>
+                        <td>{{city.jobdiversity.wholesale_pe}}</td>
+                        <td>{{city.jobdiversity.retail_pe}}</td>
+                        <td>{{city.jobdiversity.transportation_pe}}</td>
+                        <td>{{city.jobdiversity.it_pe}}</td>
+                        <td>{{city.jobdiversity.business_pe}}</td>
+                        <td>{{city.jobdiversity.scientific_pe}}</td>
+                        <td>{{city.jobdiversity.educational_pe}}</td>
+                        <td>{{city.jobdiversity.entertainment_pe}}</td>
+                        <td>{{city.jobdiversity.other_pe}}</td>
+                        <td>{{city.jobdiversity.public_admin_pe}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
